@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Alert } from 'react-native';
-import { quizData } from '../data/mockData';
+import { quizData } from '../data/quizHistory';
 import { theme } from '../styles/theme';
 
 export default function QuizScreen() {

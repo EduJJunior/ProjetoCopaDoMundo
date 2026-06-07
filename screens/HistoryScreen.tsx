@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
-import { worldCupHistory } from '../data/mockData';
+import { worldCupHistory } from '../data/quizHistory';
 import { theme } from '../styles/theme';
 
 export default function HistoryScreen() {
@@ -8,7 +8,7 @@ export default function HistoryScreen() {
     <View style={styles.card}>
       <Text style={styles.year}>{item.year}</Text>
       <Text style={styles.title}>{item.host}</Text>
-      <Text style={styles.subtitle}>Campe�o: {item.champion}</Text>
+      <Text style={styles.subtitle}>Campeão: {item.champion}</Text>
       <Text style={styles.subtitle}>Vice: {item.runnerUp}</Text>
       <Text style={styles.detail}>Artilheiro: {item.topScorer}</Text>
       <Text style={styles.detail}>{item.highlight}</Text>
