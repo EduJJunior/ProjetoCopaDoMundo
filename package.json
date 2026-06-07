@@ -1,6 +1,7 @@
 {
   "name": "expo-app",
   "version": "1.0.0",
+  "description": "Álbum Digital Interativo da Copa do Mundo - Tecnologia, Cultura e Experiência",
   "main": "index.js",
   "dependencies": {
     "@react-navigation/bottom-tabs": "^7.16.2",

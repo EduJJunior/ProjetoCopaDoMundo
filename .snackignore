@@ -1,0 +1,12 @@
+node_modules/
+.expo/
+dist/
+build/
+.expo-shared/
+.git/
+.gitignore
+legacy-root-backup/
+expo-app/
+**/*.test.ts
+**/*.test.tsx
+**/*.test.js

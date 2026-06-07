@@ -1,3 +1,17 @@
+// Helper function to determine image source
+const getImageSource = (imagePath: string | any) => {
+  // If it's already a require() statement result, return as-is
+  if (typeof imagePath === 'object' && imagePath !== null) {
+    return imagePath;
+  }
+  // If it's a string (placeholder URL), convert to object format
+  if (typeof imagePath === 'string') {
+    return { uri: imagePath };
+  }
+  // Fallback
+  return 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Alphonso+Davies';
+};
+
 export const albumData: CardItem[] = [
   // ================= ALEMANHA =================
   {
@@ -6,7 +20,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Zagueiro',
     curiosidade: 'Conhecido por sua velocidade e estilo de corrida agressivo.',
-    imagem: require('../assets/images/Alemanha/Antonio Rudiger.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Antonio+Rudiger',
   },
   {
     id: '2',
@@ -14,7 +28,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Lateral',
     curiosidade: 'Especialista em cruzamentos e muito ofensivo pelo lado esquerdo.',
-    imagem: require('../assets/images/Alemanha/David Raum.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=David+Raum',
   },
   {
     id: '3',
@@ -22,7 +36,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista alto, forte e com boa chegada ao ataque.',
-    imagem: require('../assets/images/Alemanha/Felix Nmecha.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Felix+Nmecha',
   },
   {
     id: '4',
@@ -30,7 +44,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Uma das maiores joias alemãs, maestro e super criativo.',
-    imagem: require('../assets/images/Alemanha/Florian Wirtz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Florian+Wirtz',
   },
   {
     id: '5',
@@ -38,7 +52,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Um dos talentos mais jovens e habilidosos a se destacar na seleção.',
-    imagem: require('../assets/images/Alemanha/Jamal Musiala.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Jamal+Musiala',
   },
   {
     id: '6',
@@ -46,7 +60,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro imponente fisicamente e excelente no jogo aéreo.',
-    imagem: require('../assets/images/Alemanha/Jonathan Tah.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Jonathan+Tah',
   },
   {
     id: '7',
@@ -54,7 +68,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Lateral/Meio-Campo',
     curiosidade: 'Versão alternativa da figurinha de um dos líderes da seleção.',
-    imagem: require('../assets/images/Alemanha/Joshua Kimmich 2.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Joshua+Kimmich+Especial',
   },
   {
     id: '8',
@@ -62,7 +76,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Lateral/Meio-Campo',
     curiosidade: 'Jogador extremamente versátil e com visão de jogo espetacular.',
-    imagem: require('../assets/images/Alemanha/Joshua Kimmich.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Joshua+Kimmich',
   },
   {
     id: '9',
@@ -70,7 +84,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Atacante',
     curiosidade: 'Atacante veloz que costuma quebrar defesas com suas arrancadas.',
-    imagem: require('../assets/images/Alemanha/Karim Adeyemi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Karim+Adeyemi',
   },
   {
     id: '10',
@@ -78,7 +92,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista "box-to-box", de grande força física e chutes potentes.',
-    imagem: require('../assets/images/Alemanha/Leon Goretzka.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Leon+Goretzka',
   },
   {
     id: '11',
@@ -86,7 +100,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Atacante',
     curiosidade: 'Ponta habilidoso, adora cortar da direita para o meio e finalizar.',
-    imagem: require('../assets/images/Alemanha/Leroy Sané.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Leroy+Sane',
   },
   {
     id: '12',
@@ -94,7 +108,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Goleiro',
     curiosidade: 'Considerado um dos melhores goleiros do mundo jogando com os pés.',
-    imagem: require('../assets/images/Alemanha/Marc-André Ter Stegen.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marc-Andre+Ter+Stegen',
   },
   {
     id: '13',
@@ -102,7 +116,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Lateral',
     curiosidade: 'Lateral consistente e com cruzamentos venenosos.',
-    imagem: require('../assets/images/Alemanha/Maximilian Mittelstadt.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Alemanha+Maximilian+Mittelstadt',
   },
   {
     id: '14',
@@ -110,7 +124,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Atacante',
     curiosidade: 'Jovem atacante de muita altura e técnica refinada.',
-    imagem: require('../assets/images/Alemanha/Nick Woltemade.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Alemanha+Nick+Woltemade',
   },
   {
     id: '15',
@@ -118,7 +132,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro canhoto, moderno e excelente na construção de jogadas.',
-    imagem: require('../assets/images/Alemanha/Nico Schlotterbeck.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Alemanha+Nico+Schlotterbeck',
   },
   {
     id: '16',
@@ -126,7 +140,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Lateral',
     curiosidade: 'Lateral de muita força e chegada constante ao ataque.',
-    imagem: require('../assets/images/Alemanha/Ridle Baku.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Alemanha+Ridle+Baku',
   },
   {
     id: '17',
@@ -134,7 +148,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Atacante',
     curiosidade: 'Famoso pela comemoração "cozinhando" e por gols decisivos.',
-    imagem: require('../assets/images/Alemanha/Serge Gnabry.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Alemanha+Serge+Gnabry',
   },
   {
     id: '18',
@@ -142,7 +156,7 @@ export const albumData: CardItem[] = [
     selecao: 'Alemanha',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro sólido, com espírito de liderança.',
-    imagem: require('../assets/images/Alemanha/Waldemar Anton.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Alemanha+Waldemar+Anton',
   },
 
   // ================= ARGENTINA =================
@@ -152,7 +166,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'Peça fundamental no meio-campo, dono de grande inteligência tática.',
-    imagem: require('../assets/images/Argentina/Alexis Mac Allister.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Alexis+Mac+Allister',
   },
   {
     id: '20',
@@ -160,7 +174,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro extremamente agressivo e seguro nas antecipações.',
-    imagem: require('../assets/images/Argentina/Cristian Romero.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Cristian+Romero',
   },
   {
     id: '21',
@@ -168,7 +182,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Goleiro',
     curiosidade: 'Especialista em defender pênaltis e grande herói na Copa do Mundo.',
-    imagem: require('../assets/images/Argentina/Emiliano Martínez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Emiliano+Martínez',
   },
   {
     id: '22',
@@ -176,7 +190,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'Revelação da Copa de 2022, distribui o jogo com maestria.',
-    imagem: require('../assets/images/Argentina/Enzo Fernández.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Enzo+Fernández',
   },
   {
     id: '23',
@@ -184,7 +198,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista dinâmico e forte no desarme.',
-    imagem: require('../assets/images/Argentina/Exequiel Palacios.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Exequiel+Palacios',
   },
   {
     id: '24',
@@ -192,7 +206,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'Uma das grandes promessas jovens do futebol argentino.',
-    imagem: require('../assets/images/Argentina/Franco Mastantuono.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Franco+Mastantuono',
   },
   {
     id: '25',
@@ -200,7 +214,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Atacante',
     curiosidade: 'Atacante veloz e com muita raça, seguindo o legado da família.',
-    imagem: require('../assets/images/Argentina/Giuliano Simeone.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Giuliano+Simeone',
   },
   {
     id: '26',
@@ -208,7 +222,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Atacante',
     curiosidade: 'Conhecido como "La Araña", pressiona a defesa o jogo todo.',
-    imagem: require('../assets/images/Argentina/Julián Alvarez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Julián+Alvarez',
   },
   {
     id: '27',
@@ -216,7 +230,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Atacante',
     curiosidade: 'Centroavante de força, explosão e faro de gol aguçado.',
-    imagem: require('../assets/images/Argentina/Lautaro Martínez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Lautaro+Martínez',
   },
   {
     id: '28',
@@ -224,7 +238,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante clássico, com passes longos precisos e ótimo chute.',
-    imagem: require('../assets/images/Argentina/Leandro Paredes.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Leandro+Paredes',
   },
   {
     id: '29',
@@ -232,7 +246,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro técnico com facilidade para sair jogando com a bola.',
-    imagem: require('../assets/images/Argentina/Leonardo Balerdi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Leonardo+Balerdi',
   },
   {
     id: '30',
@@ -240,7 +254,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Atacante',
     curiosidade: 'Um dos maiores jogadores da história do futebol, dispensa apresentações.',
-    imagem: require('../assets/images/Argentina/Lionel Messi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Lionel+Messi',
   },
   {
     id: '31',
@@ -248,7 +262,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Lateral',
     curiosidade: 'Lateral direito de muita chegada e cruzamentos perfeitos.',
-    imagem: require('../assets/images/Argentina/Nahuel Molina.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Nahuel+Molina',
   },
   {
     id: '32',
@@ -256,7 +270,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Atacante',
     curiosidade: 'Ponta versátil que ajuda demais na recomposição defensiva.',
-    imagem: require('../assets/images/Argentina/Nico González.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Nico+González',
   },
   {
     id: '33',
@@ -264,7 +278,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'Jovem talento de muita criatividade e drible curto.',
-    imagem: require('../assets/images/Argentina/Nico Paz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Nico+Paz',
   },
   {
     id: '34',
@@ -272,7 +286,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Zagueiro',
     curiosidade: 'O xerife da defesa argentina, líder em raça e bolas aéreas.',
-    imagem: require('../assets/images/Argentina/Nicolás Otamendi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Nicolás+Otamendi',
   },
   {
     id: '35',
@@ -280,7 +294,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Lateral',
     curiosidade: 'Lateral esquerdo muito seguro na marcação.',
-    imagem: require('../assets/images/Argentina/Nicolás Tagliafico.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Nicolás+Tagliafico',
   },
   {
     id: '36',
@@ -288,7 +302,7 @@ export const albumData: CardItem[] = [
     selecao: 'Argentina',
     posicao: 'Meio-Campo',
     curiosidade: 'O grande "motor" do time, essencial para proteger os craques.',
-    imagem: require('../assets/images/Argentina/Rodrigo de Paul.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Argentina+Rodrigo+de+Paul',
   },
 
   // ================= COCA COLA (Promocionais) =================
@@ -298,7 +312,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Lateral',
     curiosidade: 'Figurinha Promocional: Um dos jogadores mais velozes do mundo.',
-    imagem: require('../assets/images/Coca Cola/Alphonso Davies.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Alphonso+Davies',
   },
   {
     id: '38',
@@ -306,7 +320,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Goleiro',
     curiosidade: 'Figurinha Promocional do goleiro campeão do mundo.',
-    imagem: require('../assets/images/Coca Cola/Emiliano Martínez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Emiliano+Martínez',
   },
   {
     id: '39',
@@ -314,7 +328,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Atacante',
     curiosidade: 'Figurinha Promocional: O maior artilheiro da história do Equador.',
-    imagem: require('../assets/images/Coca Cola/Enner Valencia.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Enner+Valencia',
   },
   {
     id: '40',
@@ -322,7 +336,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Meio-Campo',
     curiosidade: 'Figurinha Promocional de um dos meio-campistas mais completos hoje.',
-    imagem: require('../assets/images/Coca Cola/Federico Valverde.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Federico+Valverde',
   },
   {
     id: '41',
@@ -330,7 +344,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Zagueiro',
     curiosidade: 'Figurinha Promocional: Zagueiro letal em jogadas de bola parada.',
-    imagem: require('../assets/images/Coca Cola/Gabriel Magalhaes.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Gabriel+Magalhaes',
   },
   {
     id: '42',
@@ -338,7 +352,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Atacante',
     curiosidade: 'Figurinha Promocional do artilheiro inglês.',
-    imagem: require('../assets/images/Coca Cola/Harry Kane.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Harry+Kane',
   },
   {
     id: '43',
@@ -346,7 +360,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Meio-Campo',
     curiosidade: 'Figurinha Promocional do cão de guarda da seleção colombiana.',
-    imagem: require('../assets/images/Coca Cola/Jefferson Lerma.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Jefferson+Lerma',
   },
   {
     id: '44',
@@ -354,7 +368,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Meio-Campo',
     curiosidade: 'Figurinha Promocional: Edição especial da lenda alemã.',
-    imagem: require('../assets/images/Coca Cola/Joshua Kimmich.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Joshua+Kimmich',
   },
   {
     id: '45',
@@ -362,7 +376,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Zagueiro',
     curiosidade: 'Figurinha Promocional do paredão croata.',
-    imagem: require('../assets/images/Coca Cola/Josko Gvardiol.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Josko+Gvardiol',
   },
   {
     id: '46',
@@ -370,7 +384,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Atacante',
     curiosidade: 'Figurinha Promocional: Fenômeno jovem espanhol.',
-    imagem: require('../assets/images/Coca Cola/Lamine Yamal.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Lamine+Yamal',
   },
   {
     id: '47',
@@ -378,7 +392,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Atacante',
     curiosidade: 'Figurinha Promocional: "El Toro" em edição especial.',
-    imagem: require('../assets/images/Coca Cola/Lautaro Martinez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Lautaro+Martinez',
   },
   {
     id: '48',
@@ -386,7 +400,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Atacante',
     curiosidade: 'Figurinha Promocional do experiente atacante mexicano.',
-    imagem: require('../assets/images/Coca Cola/Raul Jimenez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Raul+Jimenez',
   },
   {
     id: '49',
@@ -394,7 +408,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Atacante',
     curiosidade: 'Figurinha Promocional: Destaque artilheiro do México.',
-    imagem: require('../assets/images/Coca Cola/Santiago Giménez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Santiago+Giménez',
   },
   {
     id: '50',
@@ -402,7 +416,7 @@ export const albumData: CardItem[] = [
     selecao: 'Coca Cola',
     posicao: 'Zagueiro',
     curiosidade: 'Figurinha Promocional do imponente xerife holandês.',
-    imagem: require('../assets/images/Coca Cola/Virgil Van Dijk.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Coca+Cola+Virgil+Van+Dijk',
   },
 
   // ================= COLÔMBIA =================
@@ -412,7 +426,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro de ótimos reflexos e agilidade.',
-    imagem: require('../assets/images/Colombia/Camilo Vargas.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Camilo+Vargas',
   },
   {
     id: '52',
@@ -420,7 +434,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Lateral',
     curiosidade: 'Lateral de muita força física que apoia constantemente.',
-    imagem: require('../assets/images/Colombia/Daniel Munoz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Daniel+Munoz',
   },
   {
     id: '53',
@@ -428,7 +442,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Goleiro',
     curiosidade: 'Lenda da seleção colombiana, com experiência em várias Copas.',
-    imagem: require('../assets/images/Colombia/David Ospina.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+David+Ospina',
   },
   {
     id: '54',
@@ -436,7 +450,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro rápido e forte no jogo aéreo.',
-    imagem: require('../assets/images/Colombia/Davison Sanchez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Davison+Sanchez',
   },
   {
     id: '55',
@@ -444,7 +458,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Maestro dono de uma perna esquerda mágica e chutes venenosos.',
-    imagem: require('../assets/images/Colombia/James Rodriguez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+James+Rodriguez',
   },
   {
     id: '56',
@@ -452,7 +466,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante de muita marcação, entrega e ótimo chute de fora.',
-    imagem: require('../assets/images/Colombia/Jefferson Lerma.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Jefferson+Lerma',
   },
   {
     id: '57',
@@ -460,7 +474,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia-atacante incansável, de técnica refinada e ótimo passe.',
-    imagem: require('../assets/images/Colombia/Jhon Arias.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Jhon+Arias',
   },
   {
     id: '58',
@@ -468,7 +482,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Atacante',
     curiosidade: 'Atacante forte, alto e excelente no pivô.',
-    imagem: require('../assets/images/Colombia/Jhon Córdoba.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Jhon+Córdoba',
   },
   {
     id: '59',
@@ -476,7 +490,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro de boa técnica e vitalidade física.',
-    imagem: require('../assets/images/Colombia/Jhon Lucumi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Jhon+Lucumi',
   },
   {
     id: '60',
@@ -484,7 +498,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Lateral',
     curiosidade: 'Lateral esquerdo muito ofensivo e rápido.',
-    imagem: require('../assets/images/Colombia/Johan Mojica.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Johan+Mojica',
   },
   {
     id: '61',
@@ -492,7 +506,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia criativo, destaca-se pelos dribles curtos.',
-    imagem: require('../assets/images/Colombia/Jorge Carrascal.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Jorge+Carrascal',
   },
   {
     id: '62',
@@ -500,7 +514,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Dono de passes geniais e muita precisão nas bolas paradas.',
-    imagem: require('../assets/images/Colombia/Juan Fernando Quintero.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Juan+Fernando+Quintero',
   },
   {
     id: '63',
@@ -508,7 +522,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista organizador que dita o ritmo do jogo.',
-    imagem: require('../assets/images/Colombia/Kevin Castano.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Kevin+Castano',
   },
   {
     id: '64',
@@ -516,7 +530,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Atacante',
     curiosidade: 'Ponta extremamente habilidoso, principal válvula de escape da equipe.',
-    imagem: require('../assets/images/Colombia/Luis Diaz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Luis+Diaz',
   },
   {
     id: '65',
@@ -524,7 +538,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Atacante',
     curiosidade: 'Xará do astro uruguaio, é um atacante agudo e finalizador.',
-    imagem: require('../assets/images/Colombia/Luis Suarez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Luis+Suarez',
   },
   {
     id: '66',
@@ -532,7 +546,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Meio-Campo',
     curiosidade: 'Originário do futsal, tem drible curto e passes excelentes.',
-    imagem: require('../assets/images/Colombia/Richard Rios.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Richard+Rios',
   },
   {
     id: '67',
@@ -540,7 +554,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Lateral',
     curiosidade: 'Lateral experiente, sólido na defesa e no ataque.',
-    imagem: require('../assets/images/Colombia/Santiago Arias.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Santiago+Arias',
   },
   {
     id: '68',
@@ -548,7 +562,7 @@ export const albumData: CardItem[] = [
     selecao: 'Colombia',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro de enorme estatura, famoso por seus gols de cabeça e dancinhas.',
-    imagem: require('../assets/images/Colombia/Verry Mina.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Colombia+Verry+Mina',
   },
 
   // ================= CROÁCIA =================
@@ -558,7 +572,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Atacante',
     curiosidade: 'Atacante versátil que sempre encontra espaços nas defesas.',
-    imagem: require('../assets/images/Croacia/Andrej Kramaric.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Andrej+Kramaric',
   },
   {
     id: '70',
@@ -566,7 +580,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Atacante',
     curiosidade: 'Centroavante de força, excelente no jogo aéreo.',
-    imagem: require('../assets/images/Croacia/Ante Budimir.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Ante+Budimir',
   },
   {
     id: '71',
@@ -574,7 +588,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Goleiro',
     curiosidade: 'Pegador de pênaltis incrível e herói croata em Copas.',
-    imagem: require('../assets/images/Croacia/Dominik Livakovic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Dominik+Livakovic',
   },
   {
     id: '72',
@@ -582,7 +596,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro robusto e com bom posicionamento defensivo.',
-    imagem: require('../assets/images/Croacia/Duje Caleta-Car.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Duje+Caleta-Car',
   },
   {
     id: '73',
@@ -590,7 +604,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Atacante',
     curiosidade: 'Jovem valor de ataque com grande potencial.',
-    imagem: require('../assets/images/Croacia/Franjo Ivanovic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Franjo+Ivanovic',
   },
   {
     id: '74',
@@ -598,7 +612,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Lenda croata, ambidestro e incansável pelas pontas.',
-    imagem: require('../assets/images/Croacia/Ivan Perisic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Ivan+Perisic',
   },
   {
     id: '75',
@@ -606,7 +620,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Lateral',
     curiosidade: 'Defensor versátil, podendo atuar como lateral ou zagueiro.',
-    imagem: require('../assets/images/Croacia/Josip Stanisic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Josip+Stanisic',
   },
   {
     id: '76',
@@ -614,7 +628,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro técnico com excelente saída de bola.',
-    imagem: require('../assets/images/Croacia/Josip Sutalo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Josip+Sutalo',
   },
   {
     id: '77',
@@ -622,7 +636,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Zagueiro',
     curiosidade: 'Considerado um dos melhores defensores jovens da atualidade.',
-    imagem: require('../assets/images/Croacia/Josko Gvardiol.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Josko+Gvardiol',
   },
   {
     id: '78',
@@ -630,7 +644,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante brigador que dá sustentação ao meio de campo.',
-    imagem: require('../assets/images/Croacia/Kristijan Jakic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Kristijan+Jakic',
   },
   {
     id: '79',
@@ -638,7 +652,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia habilidoso, frequentemente comparado a Modric.',
-    imagem: require('../assets/images/Croacia/Lovro Majer.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Lovro+Majer',
   },
   {
     id: '80',
@@ -646,7 +660,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Vencedor da Bola de Ouro e o maior jogador da história da Croácia.',
-    imagem: require('../assets/images/Croacia/Luka Modric.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Luka+Modric',
   },
   {
     id: '81',
@@ -654,7 +668,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro extremamente jovem e promissor.',
-    imagem: require('../assets/images/Croacia/Luka Vuskovic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Luka+Vuskovic',
   },
   {
     id: '82',
@@ -662,7 +676,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Atacante',
     curiosidade: 'Ponta agudo que leva bastante perigo pelos lados.',
-    imagem: require('../assets/images/Croacia/Marco Pasalic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Marco+Pasalic',
   },
   {
     id: '83',
@@ -670,7 +684,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Especialista em infiltrações na área adversária para fazer gols.',
-    imagem: require('../assets/images/Croacia/Mario Pasalic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Mario+Pasalic',
   },
   {
     id: '84',
@@ -678,7 +692,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Jovem meia-atacante de muita criatividade e drible.',
-    imagem: require('../assets/images/Croacia/Martin Baturina.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Martin+Baturina',
   },
   {
     id: '85',
@@ -686,7 +700,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Dono de uma das melhores conduções de bola do mundo.',
-    imagem: require('../assets/images/Croacia/Mateo Kovacic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Mateo+Kovacic',
   },
   {
     id: '86',
@@ -694,7 +708,7 @@ export const albumData: CardItem[] = [
     selecao: 'Croacia',
     posicao: 'Meio-Campo',
     curiosidade: 'Talento emergente no setor de meio-campo croata.',
-    imagem: require('../assets/images/Croacia/Petar Sucic.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Croacia+Petar+Sucic',
   },
 // ================= EQUADOR =================
   {
@@ -703,7 +717,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista incansável, com grande capacidade de marcação e passe.',
-    imagem: require('../assets/images/Equador/Alan Franco.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Alan+Franco',
   },
   {
     id: '88',
@@ -711,7 +725,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'Ponta habilidoso e muito veloz, revelação recente do futebol equatoriano.',
-    imagem: require('../assets/images/Equador/Alan Minda.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Alan+Minda',
   },
   {
     id: '89',
@@ -719,7 +733,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Lateral',
     curiosidade: 'Lateral direito muito ofensivo, com cruzamentos perigosos.',
-    imagem: require('../assets/images/Equador/Angelo Preciado.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Angelo+Preciado',
   },
   {
     id: '90',
@@ -727,7 +741,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'O maior artilheiro da história da seleção equatoriana.',
-    imagem: require('../assets/images/Equador/Enner Valencia.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Enner+Valencia',
   },
   {
     id: '91',
@@ -735,7 +749,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'Conhecido por seus dribles desconcertantes e criatividade nas pontas.',
-    imagem: require('../assets/images/Equador/Gonzalo Plata.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Gonzalo+Plata',
   },
   {
     id: '92',
@@ -743,7 +757,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro de ótimos reflexos e segurança debaixo das traves.',
-    imagem: require('../assets/images/Equador/Gonzalo Valle.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Gonzalo+Valle',
   },
   {
     id: '93',
@@ -751,7 +765,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Goleiro',
     curiosidade: 'Argentino naturalizado equatoriano, experiente e líder em campo.',
-    imagem: require('../assets/images/Equador/Hernan Galindez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Hernan+Galindez',
   },
   {
     id: '94',
@@ -759,7 +773,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro jovem de muita imposição física e boa técnica.',
-    imagem: require('../assets/images/Equador/Joel Ordonez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Joel+Ordonez',
   },
   {
     id: '95',
@@ -767,7 +781,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'Nascido na Alemanha, escolheu representar o Equador.',
-    imagem: require('../assets/images/Equador/John Yeboah.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+John+Yeboah',
   },
   {
     id: '96',
@@ -775,7 +789,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Meio-Campo',
     curiosidade: 'Prodígio equatoriano, quebrou recordes de precocidade na seleção.',
-    imagem: require('../assets/images/Equador/Kendry Paez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Kendry+Paez',
   },
   {
     id: '97',
@@ -783,7 +797,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'Atacante de muita explosão, força e faro de gol.',
-    imagem: require('../assets/images/Equador/Kevin Rodriguez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Kevin+Rodriguez',
   },
   {
     id: '98',
@@ -791,7 +805,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'Centroavante clássico, com ótimo posicionamento na área.',
-    imagem: require('../assets/images/Equador/Leonardo Campana.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Leonardo+Campana',
   },
   {
     id: '99',
@@ -799,7 +813,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Meio-Campo',
     curiosidade: 'Um dos volantes mais caros e completos do futebol mundial.',
-    imagem: require('../assets/images/Equador/Moises Caicedo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Moises+Caicedo',
   },
   {
     id: '100',
@@ -807,7 +821,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Atacante',
     curiosidade: 'Jovem talento rápido e promissor pelos lados do campo.',
-    imagem: require('../assets/images/Equador/Nilson Angulo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Nilson+Angulo',
   },
   {
     id: '101',
@@ -815,7 +829,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia armador dinâmico com ótima visão de jogo.',
-    imagem: require('../assets/images/Equador/Pedro Vite.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Pedro+Vite',
   },
   {
     id: '102',
@@ -823,7 +837,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Lateral',
     curiosidade: 'Lateral incansável, muito forte no apoio ao ataque.',
-    imagem: require('../assets/images/Equador/Pervis Estupinan.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Pervis+Estupinan',
   },
   {
     id: '103',
@@ -831,7 +845,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro canhoto moderno, com excelente saída de bola.',
-    imagem: require('../assets/images/Equador/Piero Hincapie.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Piero+Hincapie',
   },
   {
     id: '104',
@@ -839,7 +853,7 @@ export const albumData: CardItem[] = [
     selecao: 'Equador',
     posicao: 'Zagueiro',
     curiosidade: 'Defensor veloz e de ótimos desarmes no um contra um.',
-    imagem: require('../assets/images/Equador/Willian Pacho.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Equador+Willian+Pacho',
   },
 
   // ================= ESPANHA =================
@@ -849,7 +863,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Atacante',
     curiosidade: 'Centroavante batalhador e capitão da seleção espanhola.',
-    imagem: require('../assets/images/Espanha/Alvaro Morata.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Alvaro+Morata',
   },
   {
     id: '106',
@@ -857,7 +871,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro canhoto com qualidade de passe de um meio-campista.',
-    imagem: require('../assets/images/Espanha/Aymeric Laporte.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Aymeric+Laporte',
   },
   {
     id: '107',
@@ -865,7 +879,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Lateral',
     curiosidade: 'Um dos laterais mais vitoriosos da história do futebol europeu.',
-    imagem: require('../assets/images/Espanha/Dani Carvajal.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Dani+Carvajal',
   },
   {
     id: '108',
@@ -873,7 +887,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia ofensivo especialista em infiltrações e gols decisivos.',
-    imagem: require('../assets/images/Espanha/Dani Olmo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Dani+Olmo',
   },
   {
     id: '109',
@@ -881,7 +895,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Zagueiro',
     curiosidade: 'Promissor zagueiro alto, forte e com facilidade com a bola nos pés.',
-    imagem: require('../assets/images/Espanha/Dean Huijsen.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Dean+Huijsen',
   },
   {
     id: '110',
@@ -889,7 +903,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista elegante e com chutes potentes de fora da área.',
-    imagem: require('../assets/images/Espanha/Fabian Ruiz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Fabian+Ruiz',
   },
   {
     id: '111',
@@ -897,7 +911,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Atacante',
     curiosidade: 'Ponta apelidado de "Tubarão", sempre farejando chances de gol.',
-    imagem: require('../assets/images/Espanha/Ferran Torres.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Ferran+Torres',
   },
   {
     id: '112',
@@ -905,7 +919,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Atacante',
     curiosidade: 'Maior prodígio recente da Espanha, quebrando recordes com apenas 16 anos.',
-    imagem: require('../assets/images/Espanha/Lamine Yamal.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Lamine+Yamal',
   },
   {
     id: '113',
@@ -913,7 +927,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Lateral',
     curiosidade: 'Lateral de muita raça, desarmes difíceis e cabelo inconfundível.',
-    imagem: require('../assets/images/Espanha/Marc Cucurella.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Marc+Cucurella',
   },
   {
     id: '114',
@@ -921,7 +935,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante cerebral, mestre em ditar o ritmo de jogo do time.',
-    imagem: require('../assets/images/Espanha/Martin Zubimendi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Martin+Zubimendi',
   },
   {
     id: '115',
@@ -929,7 +943,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Especialista em ganhar duelos aéreos no meio-campo.',
-    imagem: require('../assets/images/Espanha/Mikel Merino.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Mikel+Merino',
   },
   {
     id: '116',
@@ -937,7 +951,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Atacante',
     curiosidade: 'Atacante inteligente, autor do gol do título da Euro 2024.',
-    imagem: require('../assets/images/Espanha/Mikel Oyarzabal.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Mikel+Oyarzabal',
   },
   {
     id: '117',
@@ -945,7 +959,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Atacante',
     curiosidade: 'Ponta extremamente veloz e com dribles elétricos no um contra um.',
-    imagem: require('../assets/images/Espanha/Nico Williams.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Nico+Williams',
   },
   {
     id: '118',
@@ -953,7 +967,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Maestro com uma leitura de jogo impecável e passes precisos.',
-    imagem: require('../assets/images/Espanha/Pedri.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Pedri',
   },
   {
     id: '119',
@@ -961,7 +975,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Lateral',
     curiosidade: 'Lateral direito ofensivo, conhecido por seus chutes perigosos.',
-    imagem: require('../assets/images/Espanha/Pedro Porro.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Pedro+Porro',
   },
   {
     id: '120',
@@ -969,7 +983,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro de origem francesa que se naturalizou para jogar pela Espanha.',
-    imagem: require('../assets/images/Espanha/Robin Le Normand.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Robin+Le+Normand',
   },
   {
     id: '121',
@@ -977,7 +991,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Meio-Campo',
     curiosidade: 'Considerado por muitos o melhor volante do mundo na atualidade.',
-    imagem: require('../assets/images/Espanha/Rodri.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Rodri',
   },
   {
     id: '122',
@@ -985,7 +999,7 @@ export const albumData: CardItem[] = [
     selecao: 'Espanha',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro confiante e com excelente precisão jogando com os pés.',
-    imagem: require('../assets/images/Espanha/Unai Simon.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Espanha+Unai+Simon',
   },
 
   // ================= FRANÇA =================
@@ -995,7 +1009,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista técnico, esguio e com boa chegada ao ataque.',
-    imagem: require('../assets/images/França/Adrien Rabiot.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Adrien+Rabiot',
   },
   {
     id: '124',
@@ -1003,7 +1017,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante moderno, alia muita força física a uma ótima técnica.',
-    imagem: require('../assets/images/França/Aurelien Tchouameni.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Aurelien+Tchouameni',
   },
   {
     id: '125',
@@ -1011,7 +1025,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Atacante',
     curiosidade: 'Ponta insinuante e rápido, com grande habilidade de drible.',
-    imagem: require('../assets/images/França/Bradley Barcola.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Bradley+Barcola',
   },
   {
     id: '126',
@@ -1019,7 +1033,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro muito forte nos duelos corpo a corpo e rápido.',
-    imagem: require('../assets/images/França/Dayot Upamecano.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Dayot+Upamecano',
   },
   {
     id: '127',
@@ -1027,7 +1041,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Meio-Campo',
     curiosidade: 'Uma das joias francesas, meia ofensivo imprevisível.',
-    imagem: require('../assets/images/França/Desire Doue.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Desire+Doue',
   },
   {
     id: '128',
@@ -1035,7 +1049,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Meio-Campo',
     curiosidade: 'Versatilidade pura: joga muito bem no meio e até como lateral.',
-    imagem: require('../assets/images/França/Eduardo Camavinga.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Eduardo+Camavinga',
   },
   {
     id: '129',
@@ -1043,7 +1057,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Atacante',
     curiosidade: 'Atacante alto e habilidoso, com estilo de jogo elegante.',
-    imagem: require('../assets/images/França/Hugo Ekitike.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Hugo+Ekitike',
   },
   {
     id: '130',
@@ -1051,7 +1065,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro de enorme imposição física e excelente velocidade de recuperação.',
-    imagem: require('../assets/images/França/Ibrahima Konate.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Ibrahima+Konate',
   },
   {
     id: '131',
@@ -1059,7 +1073,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Lateral/Zagueiro',
     curiosidade: 'Conhecido por ser estiloso fora de campo e muito seguro na defesa.',
-    imagem: require('../assets/images/França/Jules Kounde.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Jules+Kounde',
   },
   {
     id: '132',
@@ -1067,7 +1081,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Atacante',
     curiosidade: 'Colecionador de títulos desde o início da sua carreira.',
-    imagem: require('../assets/images/França/Kingsley Coman.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Kingsley+Coman',
   },
   {
     id: '133',
@@ -1075,7 +1089,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Atacante',
     curiosidade: 'Super astro francês, famoso por sua velocidade explosiva e gols em Copas.',
-    imagem: require('../assets/images/França/Kylian Mbappe.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Kylian+Mbappe',
   },
   {
     id: '134',
@@ -1083,7 +1097,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Lateral',
     curiosidade: 'Especialista em bolas paradas e cruzamentos curvos.',
-    imagem: require('../assets/images/França/Lucas Digne.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Lucas+Digne',
   },
   {
     id: '135',
@@ -1091,7 +1105,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante com ótima capacidade de proteger e conduzir a bola.',
-    imagem: require('../assets/images/França/Manu Kone.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Manu+Kone',
   },
   {
     id: '136',
@@ -1099,7 +1113,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Atacante',
     curiosidade: 'Ponta canhoto com uma visão e técnica espetaculares.',
-    imagem: require('../assets/images/França/Michael Olise.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Michael+Olise',
   },
   {
     id: '137',
@@ -1107,7 +1121,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Goleiro',
     curiosidade: 'Apelidado de "Muralha", é excelente pegador de pênaltis.',
-    imagem: require('../assets/images/França/Mike Maignan.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Mike+Maignan',
   },
   {
     id: '138',
@@ -1115,7 +1129,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Atacante',
     curiosidade: 'Ambidestro quase perfeito, dribla com a mesma facilidade pros dois lados.',
-    imagem: require('../assets/images/França/Ousmane Dembele.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Ousmane+Dembele',
   },
   {
     id: '139',
@@ -1123,7 +1137,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Lateral',
     curiosidade: 'Lateral esquerdo famoso por suas arrancadas do campo de defesa.',
-    imagem: require('../assets/images/França/Theo Hernandez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+Theo+Hernandez',
   },
   {
     id: '140',
@@ -1131,7 +1145,7 @@ export const albumData: CardItem[] = [
     selecao: 'França',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro técnico, elegante e com leitura de jogo fantástica.',
-    imagem: require('../assets/images/França/William Saliba.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=França+William+Saliba',
   },
 
   // ================= HOLANDA =================
@@ -1141,7 +1155,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Lateral',
     curiosidade: 'Famoso por ser um lateral muito forte e presente dentro da área.',
-    imagem: require('../assets/images/Holanda/Denzel Dumfries.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Denzel+Dumfries',
   },
   {
     id: '142',
@@ -1150,7 +1164,7 @@ export const albumData: CardItem[] = [
     posicao: 'Atacante',
     curiosidade: 'Atacante rápido e excelente finalizador.',
     // Importante: mantido 'Donvell' no require para não quebrar com o nome exato do seu arquivo
-    imagem: require('../assets/images/Holanda/Donvell Malen.png'), 
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Donvell+Malen', 
   },
   {
     id: '143',
@@ -1158,7 +1172,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Meio-Campo',
     curiosidade: 'Um dos melhores condutores de bola e passadores do futebol mundial.',
-    imagem: require('../assets/images/Holanda/Frenkie De Jong.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Frenkie+De+Jong',
   },
   {
     id: '144',
@@ -1166,7 +1180,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro firme e com boa construção a partir da defesa.',
-    imagem: require('../assets/images/Holanda/Jan Paul Van Hecke.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Jan+Paul+Van+Hecke',
   },
   {
     id: '145',
@@ -1174,7 +1188,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Lateral',
     curiosidade: 'Lateral/Ala super veloz, praticamente funciona como um atacante.',
-    imagem: require('../assets/images/Holanda/Jeremie Frimpong.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Jeremie+Frimpong',
   },
   {
     id: '146',
@@ -1182,7 +1196,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Zagueiro/Lateral',
     curiosidade: 'Defensor ágil, rápido e versátil em todas as posições da zaga.',
-    imagem: require('../assets/images/Holanda/Jurrien Timber.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Jurrien+Timber',
   },
   {
     id: '147',
@@ -1190,7 +1204,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Atacante',
     curiosidade: 'Filho da lenda Patrick Kluivert, tem o faro de gol no sangue.',
-    imagem: require('../assets/images/Holanda/Justin Kluivert.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Justin+Kluivert',
   },
   {
     id: '148',
@@ -1198,7 +1212,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Atacante',
     curiosidade: 'Comemora tapando os ouvidos para focar e ignorar os críticos.',
-    imagem: require('../assets/images/Holanda/Memphis Depay.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Memphis+Depay',
   },
   {
     id: '149',
@@ -1206,7 +1220,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Zagueiro',
     curiosidade: 'Um dos zagueiros mais rápidos do futebol europeu.',
-    imagem: require('../assets/images/Holanda/Micky Van De Ven.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Micky+Van+De+Ven',
   },
   {
     id: '150',
@@ -1214,7 +1228,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro inteligente, forte e com excelentes desarmes pelo chão.',
-    imagem: require('../assets/images/Holanda/Nathan Ake.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Nathan+Ake',
   },
   {
     id: '151',
@@ -1222,7 +1236,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista alto, liso e com enorme talento no giro de bola.',
-    imagem: require('../assets/images/Holanda/Ryan Gravenberch.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Ryan+Gravenberch',
   },
   {
     id: '152',
@@ -1230,7 +1244,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Meio-Campo',
     curiosidade: 'Especialista em chutes venenosos de média e longa distância.',
-    imagem: require('../assets/images/Holanda/Teun Koopmeiners.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Teun+Koopmeiners',
   },
   {
     id: '153',
@@ -1238,7 +1252,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Meio-Campo',
     curiosidade: 'Motorzinho do meio de campo holandês, corre o campo inteiro.',
-    imagem: require('../assets/images/Holanda/Tijjani Reijnders.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Tijjani+Reijnders',
   },
   {
     id: '154',
@@ -1246,7 +1260,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro impenetrável e o grande capitão e pilar da equipe.',
-    imagem: require('../assets/images/Holanda/Virgil Van Dijk.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Virgil+Van+Dijk',
   },
   {
     id: '155',
@@ -1254,7 +1268,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Atacante',
     curiosidade: 'O famoso "homem de referência" gigante que domina o jogo aéreo.',
-    imagem: require('../assets/images/Holanda/Wout Weghorst.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Wout+Weghorst',
   },
   {
     id: '156',
@@ -1262,7 +1276,7 @@ export const albumData: CardItem[] = [
     selecao: 'Holanda',
     posicao: 'Meio-Campo/Atacante',
     curiosidade: 'Ex-joia de base muito midiática, que virou realidade na seleção.',
-    imagem: require('../assets/images/Holanda/Xavi Simons.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Holanda+Xavi+Simons',
   },
   // ================= INGLATERRA =================
   {
@@ -1271,7 +1285,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Atacante',
     curiosidade: 'Conhecido por sua extrema velocidade e capacidade de drible pelas pontas.',
-    imagem: require('../assets/images/Inglaterra/Anthony Gordon.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Anthony+Gordon',
   },
   {
     id: '2',
@@ -1279,7 +1293,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Atacante',
     curiosidade: 'Um dos grandes talentos do Arsenal, destacando-se pela visão de jogo.',
-    imagem: require('../assets/images/Inglaterra/Bukayo Saka.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Bukayo+Saka',
   },
   {
     id: '3',
@@ -1287,7 +1301,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Meio-Campo',
     curiosidade: 'Famoso por sua frieza impressionante na hora de cobrar pênaltis e finalizar.',
-    imagem: require('../assets/images/Inglaterra/Cole Palmer.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Cole+Palmer',
   },
   {
     id: '4',
@@ -1295,7 +1309,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Zagueiro',
     curiosidade: 'Destaca-se pela sua altura imponente e força no jogo aéreo.',
-    imagem: require('../assets/images/Inglaterra/Dan Burn.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Dan+Burn',
   },
   {
     id: '5',
@@ -1303,7 +1317,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Meio-Campo',
     curiosidade: 'Pilar defensivo no meio-campo, excelente na interceptação de passes.',
-    imagem: require('../assets/images/Inglaterra/Declan Rice.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Declan+Rice',
   },
   {
     id: '6',
@@ -1311,7 +1325,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Zagueiro',
     curiosidade: 'Defensor versátil e muito consistente na marcação um contra um.',
-    imagem: require('../assets/images/Inglaterra/Ezri Konsa.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Ezri+Konsa',
   },
   {
     id: '7',
@@ -1319,7 +1333,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Atacante',
     curiosidade: 'Maior artilheiro da história da seleção inglesa e um finalizador nato.',
-    imagem: require('../assets/images/Inglaterra/Harry Kane.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Harry+Kane',
   },
   {
     id: '8',
@@ -1327,7 +1341,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro moderno, conhecido por sua tranquilidade para sair jogando.',
-    imagem: require('../assets/images/Inglaterra/John Stones.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+John+Stones',
   },
   {
     id: '9',
@@ -1335,7 +1349,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Meio-Campo',
     curiosidade: 'Líder experiente e incansável na cobertura de espaços no meio-campo.',
-    imagem: require('../assets/images/Inglaterra/Jordan Henderson.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Jordan+Henderson',
   },
   {
     id: '10',
@@ -1343,7 +1357,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Goleiro',
     curiosidade: 'Famoso por suas defesas espetaculares e precisão nos lançamentos longos.',
-    imagem: require('../assets/images/Inglaterra/Jordan Pickford.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Jordan+Pickford',
   },
   {
     id: '11',
@@ -1351,7 +1365,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Meio-Campo',
     curiosidade: 'Um dos jovens mais promissores do mundo, com qualidade técnica absurda.',
-    imagem: require('../assets/images/Inglaterra/Jude Bellingham.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Jude+Bellingham',
   },
   {
     id: '12',
@@ -1359,7 +1373,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Zagueiro',
     curiosidade: 'Destaca-se pelo seu excelente posicionamento e leitura tática.',
-    imagem: require('../assets/images/Inglaterra/Marc Guehi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Marc+Guehi',
   },
   {
     id: '13',
@@ -1367,7 +1381,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Atacante',
     curiosidade: 'Atacante rápido, habilidoso e com um chute potente de fora da área.',
-    imagem: require('../assets/images/Inglaterra/Marcus Rashford.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Marcus+Rashford',
   },
   {
     id: '14',
@@ -1375,7 +1389,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Meio-Campo',
     curiosidade: 'Jovem talento ofensivo com grande capacidade de criação.',
-    imagem: require('../assets/images/Inglaterra/Morgan Rogers.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Morgan+Rogers',
   },
   {
     id: '15',
@@ -1383,7 +1397,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Atacante',
     curiosidade: 'Atacante móvel e letal, sempre presente na área adversária.',
-    imagem: require('../assets/images/Inglaterra/Ollie Watkins.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Ollie+Watkins',
   },
   {
     id: '16',
@@ -1391,7 +1405,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Meio-Campo',
     curiosidade: 'Conhecido por seu controle de bola refinado e agilidade em espaços curtos.',
-    imagem: require('../assets/images/Inglaterra/Phil Foden.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Phil+Foden',
   },
   {
     id: '17',
@@ -1399,7 +1413,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Lateral',
     curiosidade: 'Lateral muito forte fisicamente e excelente nos cruzamentos.',
-    imagem: require('../assets/images/Inglaterra/Reece James.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Reece+James',
   },
   {
     id: '18',
@@ -1407,7 +1421,7 @@ export const albumData: CardItem[] = [
     selecao: 'Inglaterra',
     posicao: 'Lateral',
     curiosidade: 'Considerado um dos laterais com melhor passe e visão de jogo do mundo.',
-    imagem: require('../assets/images/Inglaterra/Trent Alexander-Arnold.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Inglaterra+Trent+Alexander-Arnold',
   },
 
   // ================= MARROCOS =================
@@ -1417,7 +1431,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Atacante',
     curiosidade: 'Ponta muito habilidoso, especialista em quebrar linhas com dribles.',
-    imagem: require('../assets/images/Marrocos/Abde Ezzalzouli.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Abde+Ezzalzouli',
   },
   {
     id: '20',
@@ -1425,7 +1439,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Lateral',
     curiosidade: 'Um dos laterais mais rápidos do mundo, essencial no ataque de Marrocos.',
-    imagem: require('../assets/images/Marrocos/Achraf Hakimi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Achraf+Hakimi',
   },
   {
     id: '21',
@@ -1433,7 +1447,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Zagueiro',
     curiosidade: 'Defensor canhoto, traz fisicalidade e consistência à linha defensiva.',
-    imagem: require('../assets/images/Marrocos/Adam Masina.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Adam+Masina',
   },
   {
     id: '22',
@@ -1441,7 +1455,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Atacante',
     curiosidade: 'Artilheiro nato, famoso pelo seu oportunismo dentro da grande área.',
-    imagem: require('../assets/images/Marrocos/Ayoub El Kaabi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Ayoub+El+Kaabi',
   },
   {
     id: '23',
@@ -1449,7 +1463,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Meio-Campo',
     curiosidade: 'Ganhou fama mundial por sua elegância e controle de bola na Copa do Mundo.',
-    imagem: require('../assets/images/Marrocos/Azzedine Ounahi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Azzedine+Ounahi',
   },
   {
     id: '24',
@@ -1457,7 +1471,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Meio-Campo',
     curiosidade: 'Jovem meio-campista criativo, com grande futuro na seleção.',
-    imagem: require('../assets/images/Marrocos/Bilal El Khannouss.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Bilal+El+Khannouss',
   },
   {
     id: '25',
@@ -1465,7 +1479,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia armador ambidestro, traz muita técnica para o setor ofensivo.',
-    imagem: require('../assets/images/Marrocos/Brahim Diaz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Brahim+Diaz',
   },
   {
     id: '26',
@@ -1473,7 +1487,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Meio-Campo',
     curiosidade: 'Uma joia promissora do futebol marroquino, muito habilidoso.',
-    imagem: require('../assets/images/Marrocos/Eliesse Ben Seghir.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Eliesse+Ben+Seghir',
   },
   {
     id: '27',
@@ -1481,7 +1495,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista dinâmico, forte no apoio e na marcação.',
-    imagem: require('../assets/images/Marrocos/Ismael Saibari.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Ismael+Saibari',
   },
   {
     id: '28',
@@ -1489,7 +1503,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro experiente, peça chave para a solidez defensiva.',
-    imagem: require('../assets/images/Marrocos/Jawad El Yamiq.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Jawad+El+Yamiq',
   },
   {
     id: '29',
@@ -1497,7 +1511,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro seguro e com ótimos reflexos, fundamental na seleção.',
-    imagem: require('../assets/images/Marrocos/Munir El Kajoui.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Munir+El+Kajoui',
   },
   {
     id: '30',
@@ -1505,7 +1519,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Zagueiro',
     curiosidade: 'Especialista em bolas aéreas e essencial na saída de bola.',
-    imagem: require('../assets/images/Marrocos/Nayef Aguerd.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Nayef+Aguerd',
   },
   {
     id: '31',
@@ -1513,7 +1527,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Lateral',
     curiosidade: 'Pode jogar em ambas as laterais com excelente qualidade técnica.',
-    imagem: require('../assets/images/Marrocos/Noussair Mazraqui.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Noussair+Mazraqui',
   },
   {
     id: '32',
@@ -1521,7 +1535,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Zagueiro',
     curiosidade: 'O grande líder da defesa e capitão inspirador de Marrocos.',
-    imagem: require('../assets/images/Marrocos/Romain Saiss.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Romain+Saiss',
   },
   {
     id: '33',
@@ -1529,7 +1543,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Meio-Campo',
     curiosidade: 'Motor do time, conhecido por sua força incansável na marcação.',
-    imagem: require('../assets/images/Marrocos/Sofyan Amrabat.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Sofyan+Amrabat',
   },
   {
     id: '34',
@@ -1537,7 +1551,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Atacante',
     curiosidade: 'Atacante rápido, de muita entrega e presença na área.',
-    imagem: require('../assets/images/Marrocos/Soufiane Rahimi.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Soufiane+Rahimi',
   },
   {
     id: '35',
@@ -1545,7 +1559,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Goleiro',
     curiosidade: 'Um dos grandes heróis de Marrocos, famoso por ser pegador de pênaltis.',
-    imagem: require('../assets/images/Marrocos/Yassine Bounou.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Yassine+Bounou',
   },
   {
     id: '36',
@@ -1553,7 +1567,7 @@ export const albumData: CardItem[] = [
     selecao: 'Marrocos',
     posicao: 'Atacante',
     curiosidade: 'Possui uma impulsão incrível, famoso por gols de cabeça decisivos.',
-    imagem: require('../assets/images/Marrocos/Youssef En-Nesyri.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Marrocos+Youssef+En-Nesyri',
   },
 
   // ================= MEXICO =================
@@ -1563,7 +1577,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Atacante',
     curiosidade: 'Jogador dinâmico, criativo e peça importante no ataque mexicano.',
-    imagem: require('../assets/images/Mexico/Alexis Vega.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Alexis+Vega',
   },
   {
     id: '38',
@@ -1571,7 +1585,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante inteligente e bom distribuidor de jogadas.',
-    imagem: require('../assets/images/Mexico/Carlos Rodriguez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Carlos+Rodriguez',
   },
   {
     id: '39',
@@ -1579,7 +1593,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Atacante',
     curiosidade: 'Atacante habilidoso e conhecido por ir pra cima da marcação.',
-    imagem: require('../assets/images/Mexico/Cesar Huerta.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Cesar+Huerta',
   },
   {
     id: '40',
@@ -1587,7 +1601,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro alto, forte no jogo aéreo e seguro na marcação.',
-    imagem: require('../assets/images/Mexico/Cesar Montes.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Cesar+Montes',
   },
   {
     id: '41',
@@ -1595,7 +1609,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Atacante',
     curiosidade: 'Ponta rápido, de baixa estatura mas com muita agilidade.',
-    imagem: require('../assets/images/Mexico/Diego Lainez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Diego+Lainez',
   },
   {
     id: '42',
@@ -1603,7 +1617,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Meio-Campo',
     curiosidade: 'Líder no meio-campo, forte na marcação e recuperação de bola.',
-    imagem: require('../assets/images/Mexico/Edson Alvarez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Edson+Alvarez',
   },
   {
     id: '43',
@@ -1611,7 +1625,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia dinâmico e combativo, essencial para a transição do time.',
-    imagem: require('../assets/images/Mexico/Erick Sanchez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Erick+Sanchez',
   },
   {
     id: '44',
@@ -1619,7 +1633,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Atacante',
     curiosidade: 'O "Chucky" é um dos maiores craques do México, rápido e letal.',
-    imagem: require('../assets/images/Mexico/Hirving Lozano.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Hirving+Lozano',
   },
   {
     id: '45',
@@ -1627,7 +1641,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro promissor, versátil e de boa técnica.',
-    imagem: require('../assets/images/Mexico/Israel Reves.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Israel+Reves',
   },
   {
     id: '46',
@@ -1635,7 +1649,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Lateral',
     curiosidade: 'Lateral ofensivo e experiente na seleção mexicana.',
-    imagem: require('../assets/images/Mexico/Jesus Gallardo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Jesus+Gallardo',
   },
   {
     id: '47',
@@ -1643,7 +1657,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Zagueiro',
     curiosidade: 'Defensor canhoto, tem ganhado muito destaque no futebol internacional.',
-    imagem: require('../assets/images/Mexico/Johan Vasquez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Johan+Vasquez',
   },
   {
     id: '48',
@@ -1651,7 +1665,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Lateral',
     curiosidade: 'Lateral direito firme na marcação e com bom apoio ofensivo.',
-    imagem: require('../assets/images/Mexico/Jorge Sanchez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Jorge+Sanchez',
   },
   {
     id: '49',
@@ -1659,7 +1673,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro ágil e seguro, de muito futuro na seleção.',
-    imagem: require('../assets/images/Mexico/Luis Malagon.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Luis+Malagon',
   },
   {
     id: '50',
@@ -1667,7 +1681,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia muito técnico e com excelente visão de passe.',
-    imagem: require('../assets/images/Mexico/Marcel Ruiz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Marcel+Ruiz',
   },
   {
     id: '51',
@@ -1675,7 +1689,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia criativo, destaca-se pela facilidade de pisar na área.',
-    imagem: require('../assets/images/Mexico/Orbelin Pineda.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Orbelin+Pineda',
   },
   {
     id: '52',
@@ -1683,7 +1697,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Atacante',
     curiosidade: 'Centroavante clássico, com grande técnica e poder de finalização.',
-    imagem: require('../assets/images/Mexico/Raul Jimenez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Raul+Jimenez',
   },
   {
     id: '53',
@@ -1691,7 +1705,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista versátil, atua bem tanto por dentro quanto pelas pontas.',
-    imagem: require('../assets/images/Mexico/Roberto Alvarado.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Roberto+Alvarado',
   },
   {
     id: '54',
@@ -1699,7 +1713,7 @@ export const albumData: CardItem[] = [
     selecao: 'Mexico',
     posicao: 'Atacante',
     curiosidade: 'Jovem goleador em ascensão, faro de gol apurado.',
-    imagem: require('../assets/images/Mexico/Santiago Gimenez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Mexico+Santiago+Gimenez',
   },
 
   // ================= NORUEGA =================
@@ -1709,7 +1723,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Atacante alto e forte, faz excelente dupla de ataque.',
-    imagem: require('../assets/images/Noruega/Alexander Sorloth.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Alexander+Sorloth',
   },
   {
     id: '56',
@@ -1717,7 +1731,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Jovem talento norueguês, rápido e muito habilidoso.',
-    imagem: require('../assets/images/Noruega/Andreas Schjelderup.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Andreas+Schjelderup',
   },
   {
     id: '57',
@@ -1725,7 +1739,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Considerado um dos jogadores mais velozes de sua geração.',
-    imagem: require('../assets/images/Noruega/Antonio Nusa.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Antonio+Nusa',
   },
   {
     id: '58',
@@ -1733,7 +1747,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Jogador versátil que costuma atuar pelas pontas.',
-    imagem: require('../assets/images/Noruega/Aron Donnum.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Aron+Donnum',
   },
   {
     id: '59',
@@ -1741,7 +1755,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Lateral',
     curiosidade: 'Lateral que tem ganhado destaque pela solidez e juventude.',
-    imagem: require('../assets/images/Noruega/David Mooller Wolfe.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+David+Mooller+Wolfe',
   },
   {
     id: '60',
@@ -1749,7 +1763,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Um dos maiores goleadores da atualidade, máquina de fazer gols.',
-    imagem: require('../assets/images/Noruega/Erling Haaland.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Erling+Haaland',
   },
   {
     id: '61',
@@ -1757,7 +1771,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Atacante físico e com ótima presença de área.',
-    imagem: require('../assets/images/Noruega/Jorgen Strand Larsen.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Jorgen+Strand+Larsen',
   },
   {
     id: '62',
@@ -1765,7 +1779,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Lateral',
     curiosidade: 'Lateral de muita força física e boa chegada ao ataque.',
-    imagem: require('../assets/images/Noruega/Julian Ryerson.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Julian+Ryerson',
   },
   {
     id: '63',
@@ -1773,7 +1787,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia central forte na marcação e distribuição de jogo.',
-    imagem: require('../assets/images/Noruega/Kristoffer Vassbakk Ajer.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Kristoffer+Vassbakk+Ajer',
   },
   {
     id: '64',
@@ -1781,7 +1795,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro firme e de muito vigor físico na zaga norueguesa.',
-    imagem: require('../assets/images/Noruega/Leo Ostigard.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Leo+Ostigard',
   },
   {
     id: '65',
@@ -1789,7 +1803,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Meio-Campo',
     curiosidade: 'Atleta que dá dinâmica e mobilidade ao setor criativo.',
-    imagem: require('../assets/images/Noruega/Marcus Holmgren Pedersen.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Marcus+Holmgren+Pedersen',
   },
   {
     id: '66',
@@ -1797,7 +1811,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Meio-Campo',
     curiosidade: 'Maestro e capitão da equipe, dono de passes mágicos e visão única.',
-    imagem: require('../assets/images/Noruega/Martin Odergaard.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Martin+Odergaard',
   },
   {
     id: '67',
@@ -1805,7 +1819,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante combativo e conhecido também pelo ativismo ambiental.',
-    imagem: require('../assets/images/Noruega/Morten Thorsby.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Morten+Thorsby',
   },
   {
     id: '68',
@@ -1813,7 +1827,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro muito experiente sob as traves da seleção da Noruega.',
-    imagem: require('../assets/images/Noruega/Orjan Nyland.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Orjan+Nyland',
   },
   {
     id: '69',
@@ -1821,7 +1835,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Atacante',
     curiosidade: 'Jovem joia, dono de uma condução de bola extremamente perigosa.',
-    imagem: require('../assets/images/Noruega/Oscar Bobb.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Oscar+Bobb',
   },
   {
     id: '70',
@@ -1829,7 +1843,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Meio-Campo',
     curiosidade: 'Meio-campista muito regular e importante no controle da posse.',
-    imagem: require('../assets/images/Noruega/Patrick Berg.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Patrick+Berg',
   },
   {
     id: '71',
@@ -1837,7 +1851,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante imponente, usa sua estatura para dominar o setor central.',
-    imagem: require('../assets/images/Noruega/Sander Berge.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Sander+Berge',
   },
   {
     id: '72',
@@ -1845,7 +1859,7 @@ export const albumData: CardItem[] = [
     selecao: 'Noruega',
     posicao: 'Zagueiro',
     curiosidade: 'Opção defensiva sólida que garante segurança à Noruega.',
-    imagem: require('../assets/images/Noruega/Torbjorn Heggem.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Noruega+Torbjorn+Heggem',
   },
 
   // ================= PORTUGAL =================
@@ -1855,7 +1869,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Meio-Campo',
     curiosidade: 'Cérebro do meio-campo, mestre em assistências e finalizações.',
-    imagem: require('../assets/images/Portugal/Bruno Fernandes.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Bruno+Fernandes',
   },
   {
     id: '74',
@@ -1863,7 +1877,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Atacante',
     curiosidade: 'Lenda do futebol mundial, maior artilheiro por seleções da história.',
-    imagem: require('../assets/images/Portugal/Cristiano Ronaldo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Cristiano+Ronaldo',
   },
   {
     id: '75',
@@ -1871,7 +1885,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro completo, excelente com os pés e ótimo pegador de pênaltis.',
-    imagem: require('../assets/images/Portugal/Diogo Costa.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Diogo+Costa',
   },
   {
     id: '76',
@@ -1879,7 +1893,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Lateral',
     curiosidade: 'Lateral versátil e de muita técnica, apoia o ataque com qualidade.',
-    imagem: require('../assets/images/Portugal/Diogo Dalot.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Diogo+Dalot',
   },
   {
     id: '77',
@@ -1887,7 +1901,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Atacante',
     curiosidade: 'Ponta habilidoso, adora cortar pro meio e finalizar com a canhota.',
-    imagem: require('../assets/images/Portugal/Francisco Trincao.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Francisco+Trincao',
   },
   {
     id: '78',
@@ -1895,7 +1909,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Zagueiro',
     curiosidade: 'Jovem zagueiro canhoto, com excelente precisão no passe longo.',
-    imagem: require('../assets/images/Portugal/Gonçalo Inacio.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Gonçalo+Inacio',
   },
   {
     id: '79',
@@ -1903,7 +1917,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Atacante',
     curiosidade: 'Centroavante brigador e dono de ótimo posicionamento na área.',
-    imagem: require('../assets/images/Portugal/Gonçalo Ramos.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Gonçalo+Ramos',
   },
   {
     id: '80',
@@ -1911,7 +1925,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Lateral',
     curiosidade: 'Um dos laterais com maior técnica individual do mundo.',
-    imagem: require('../assets/images/Portugal/Joao Cancelo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Joao+Cancelo',
   },
   {
     id: '81',
@@ -1919,7 +1933,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Atacante',
     curiosidade: 'Atacante muito criativo e elegante com a bola no pé.',
-    imagem: require('../assets/images/Portugal/Joao Felix.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Joao+Felix',
   },
   {
     id: '82',
@@ -1927,7 +1941,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Meio-Campo',
     curiosidade: 'Jovem promessa do meio-campo de Portugal, joga como veterano.',
-    imagem: require('../assets/images/Portugal/Joao Neves.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Joao+Neves',
   },
   {
     id: '83',
@@ -1935,7 +1949,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro experiente e de ótimos reflexos para a seleção.',
-    imagem: require('../assets/images/Portugal/Jose Sa.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Jose+Sa',
   },
   {
     id: '84',
@@ -1943,7 +1957,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Lateral',
     curiosidade: 'Lateral esquerdo muito veloz e um tormento para defesas adversárias.',
-    imagem: require('../assets/images/Portugal/Nuno Mendes.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Nuno+Mendes',
   },
   {
     id: '85',
@@ -1951,7 +1965,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Atacante',
     curiosidade: 'Ponta arisco e incisivo, excelente no mano a mano.',
-    imagem: require('../assets/images/Portugal/Pedro Neto.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Pedro+Neto',
   },
   {
     id: '86',
@@ -1959,7 +1973,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Atacante',
     curiosidade: 'Poderoso fisicamente, suas arrancadas pela esquerda são fatais.',
-    imagem: require('../assets/images/Portugal/Rafael Leao.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Rafael+Leao',
   },
   {
     id: '87',
@@ -1967,7 +1981,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Zagueiro',
     curiosidade: 'Xerife da zaga, liderança absoluta e leitura tática perfeita.',
-    imagem: require('../assets/images/Portugal/Ruben Dias.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Ruben+Dias',
   },
   {
     id: '88',
@@ -1975,7 +1989,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Meio-Campo',
     curiosidade: 'Dono de um chute fenomenal de fora da área e passes longos precisos.',
-    imagem: require('../assets/images/Portugal/Ruben Neves.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Ruben+Neves',
   },
   {
     id: '89',
@@ -1983,7 +1997,7 @@ export const albumData: CardItem[] = [
     selecao: 'Portugal',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia armador ágil, que controla o ritmo e faz a bola girar.',
-    imagem: require('../assets/images/Portugal/Vitinha.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Portugal+Vitinha',
   },
 
   // ================= URUGUAI =================
@@ -1993,7 +2007,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Atacante',
     curiosidade: 'Atacante de força pura e explosão, letal nos contra-ataques.',
-    imagem: require('../assets/images/Uruguai/Darwin Nunez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Darwin+Nunez',
   },
   {
     id: '91',
@@ -2001,7 +2015,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Atacante',
     curiosidade: 'Ponta insinuante e rápido, fundamental para abrir as defesas.',
-    imagem: require('../assets/images/Uruguai/Facundo Pellistri.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Facundo+Pellistri',
   },
   {
     id: '92',
@@ -2009,7 +2023,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Meio-Campo',
     curiosidade: 'Motor do Uruguai, joga em toda parte do campo e tem chute potentíssimo.',
-    imagem: require('../assets/images/Uruguai/Federico Valverde.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Federico+Valverde',
   },
   {
     id: '93',
@@ -2017,7 +2031,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Atacante',
     curiosidade: 'Atacante de área com muita força e precisão nos arremates.',
-    imagem: require('../assets/images/Uruguai/Federico Vinas.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Federico+Vinas',
   },
   {
     id: '94',
@@ -2025,7 +2039,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Meio-Campo',
     curiosidade: 'Maestro com extrema visão de jogo e facilidade para marcar gols.',
-    imagem: require('../assets/images/Uruguai/Giorgian De Arrascaeta.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Giorgian+De+Arrascaeta',
   },
   {
     id: '95',
@@ -2033,7 +2047,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Lateral',
     curiosidade: 'Lateral consistente e seguro na marcação do lado direito.',
-    imagem: require('../assets/images/Uruguai/Guillermo Varela.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Guillermo+Varela',
   },
   {
     id: '96',
@@ -2041,7 +2055,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Zagueiro',
     curiosidade: 'Herdeiro da tradicional "Garra Charrua" na zaga uruguaia.',
-    imagem: require('../assets/images/Uruguai/Jose Maria Gimenez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Jose+Maria+Gimenez',
   },
   {
     id: '97',
@@ -2049,7 +2063,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Meio-Campo',
     curiosidade: 'Cão de guarda incansável, recuperador de bolas fenomenal.',
-    imagem: require('../assets/images/Uruguai/Manuel Ugarte.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Manuel+Ugarte',
   },
   {
     id: '98',
@@ -2057,7 +2071,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Lateral',
     curiosidade: 'Lateral esquerdo de muita intensidade e forte no apoio.',
-    imagem: require('../assets/images/Uruguai/Mathias Olivera.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Mathias+Olivera',
   },
   {
     id: '99',
@@ -2065,7 +2079,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Atacante',
     curiosidade: 'Jogador agudo, traz bastante perigo jogando pelas beiradas.',
-    imagem: require('../assets/images/Uruguai/Maxi Araujo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Maxi+Araujo',
   },
   {
     id: '100',
@@ -2073,7 +2087,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Meio-Campo',
     curiosidade: 'Volante de muita raça, entrega tudo de si durante os 90 minutos.',
-    imagem: require('../assets/images/Uruguai/Nahitan Nandez.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Nahitan+Nandez',
   },
   {
     id: '101',
@@ -2081,7 +2095,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Meio-Campo',
     curiosidade: 'Dinâmico, criativo e perigoso nas cobranças de falta.',
-    imagem: require('../assets/images/Uruguai/Nicolas De La Cruz.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Nicolas+De+La+Cruz',
   },
   {
     id: '102',
@@ -2089,7 +2103,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Atacante',
     curiosidade: 'Faro de gol e muita combatividade na frente.',
-    imagem: require('../assets/images/Uruguai/Rodrigo Aguirre.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Rodrigo+Aguirre',
   },
   {
     id: '103',
@@ -2097,7 +2111,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Meio-Campo',
     curiosidade: 'Meia central de muita elegância e eficiência na saída de bola.',
-    imagem: require('../assets/images/Uruguai/Rodrigo Bentancur.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Rodrigo+Bentancur',
   },
   {
     id: '104',
@@ -2105,7 +2119,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Zagueiro',
     curiosidade: 'Um monstro fisicamente, muito difícil de ser batido na velocidade.',
-    imagem: require('../assets/images/Uruguai/Ronald Araujo.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Ronald+Araujo',
   },
   {
     id: '105',
@@ -2113,7 +2127,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Goleiro',
     curiosidade: 'Goleiro seguro e com boa reposição de bola.',
-    imagem: require('../assets/images/Uruguai/Santiago Mele.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Santiago+Mele',
   },
   {
     id: '106',
@@ -2121,7 +2135,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Zagueiro',
     curiosidade: 'Zagueiro ágil e inteligente na antecipação das jogadas.',
-    imagem: require('../assets/images/Uruguai/Sebastian Caceres.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Sebastian+Caceres',
   },
   {
     id: '107',
@@ -2129,7 +2143,7 @@ export const albumData: CardItem[] = [
     selecao: 'Uruguai',
     posicao: 'Goleiro',
     curiosidade: 'Dono absoluto da meta uruguaia com liderança e boas defesas.',
-    imagem: require('../assets/images/Uruguai/Sergio Rochet.png'),
+    imagem: 'https://via.placeholder.com/500x300.png?text=Uruguai+Sergio+Rochet',
   },
   {
     id: '108',
