@@ -28,7 +28,7 @@ export default function QuizScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Arena Quiz 🏆</Text>
         <Text style={styles.headerSubtitle}>Mostre que você sabe tudo de Copa do Mundo!</Text>
@@ -58,7 +58,7 @@ export default function QuizScreen() {
           </TouchableOpacity>
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -4,10 +4,11 @@ import { theme } from '../styles/theme';
 
 export default function OdsScreen() {
   const odsList = [
-    { title: 'ODS 4 – Educação de Qualidade', desc: 'Disseminação gratuita de fatos históricos, geografia cultural dos países-sede e dados estatísticos precisos.' },
-    { title: 'ODS 8 – Trabalho Decente e Crescimento Econômico', desc: 'Fomento do entendimento do impacto econômico global gerado pelo turismo e marketing esportivo.' },
-    { title: 'ODS 9 – Indústria, Inovação e Infraestrutura', desc: 'Uso de arquitetura mobile moderna com foco em performance e transformação digital do colecionável.' },
-    { title: 'ODS 10 – Redução das Desigualdades', desc: 'Recursos integrados de acessibilidade para que pessoas com limitações visuais/motoras acessem o ecossistema.' }
+    { title: 'ODS 4 – Educação de Qualidade', desc: 'Conteúdo histórico e cultural sobre as Copas, aprendendo geografia, estatísticas e curiosidades de cada país-sede.' },
+    { title: 'ODS 8 – Trabalho Decente e Crescimento Econômico', desc: 'Explora como eventos esportivos movimentam empregos, infraestrutura, turismo e economia local de diferentes países.' },
+    { title: 'ODS 9 – Indústria, Inovação e Infraestrutura', desc: 'Demonstra o uso de tecnologia móvel, design interativo e experiências digitais no desenvolvimento de um álbum colecionável.' },
+    { title: 'ODS 10 – Redução das Desigualdades', desc: 'Promove inclusão com funcionalidades de acessibilidade e uma interface que facilita o acesso de usuários diversos.' },
+    { title: 'ODS 17 – Parcerias e Meios de Implementação', desc: 'Mostra como o esporte e a educação podem aproximar culturas, nações e comunidades por meio de parcerias globais.' }
   ];
 
   return (

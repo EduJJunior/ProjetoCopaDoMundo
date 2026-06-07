@@ -11,7 +11,15 @@ export default function DetailsScreen({ route }: any) {
   const description = item.description ?? `Figurinha da seleção ${item.selecao}. ${item.curiosidade}`;
   const stats = item.stats ?? item.posicao;
   const curiosity = item.curiosity ?? item.curiosidade;
-  const typeLabel = item.type ? item.type.toUpperCase() : item.posicao;
+  const typeLabel = item.type
+    ? item.type === 'coach'
+      ? 'TÉCNICO'
+      : item.type === 'team'
+      ? 'SELEÇÃO'
+      : item.type === 'stadium'
+      ? 'ESTÁDIO'
+      : item.type.toUpperCase()
+    : item.posicao;
 
   const handleAccessibilitySpeech = () => {
     Alert.alert('Acessibilidade (Screen Reader)', `Lendo: ${title}. ${description}`);
@@ -25,9 +33,11 @@ export default function DetailsScreen({ route }: any) {
     );
   };
 
+  const imageSource = typeof item.image === 'string' ? { uri: item.image } : item.image;
+
   return (
     <ScrollView style={styles.container} bounces={false}>
-      <Image source={item.image} style={styles.image} />
+      <Image source={imageSource} style={styles.image} />
       
       <View style={styles.content}>
         <Text style={styles.typeTag}>{typeLabel}</Text>

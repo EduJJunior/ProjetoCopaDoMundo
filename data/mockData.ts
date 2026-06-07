@@ -2150,7 +2150,34 @@ export const albumData: CardItem[] = [
     type: 'stadium',
   },
   {
-    id: '110',
+    id: '1001',
+    nome: 'Tite',
+    selecao: 'Brasil',
+    posicao: 'Técnico',
+    curiosidade: 'Técnico campeão da Copa América, conhecido pela gestão de grandes seleções.',
+    imagem: 'https://via.placeholder.com/500x300.png?text=Tite',
+    type: 'coach',
+  },
+  {
+    id: '1002',
+    nome: 'Pep Guardiola',
+    selecao: 'Global',
+    posicao: 'Técnico',
+    curiosidade: 'Um dos treinadores mais inovadores do futebol moderno.',
+    imagem: 'https://via.placeholder.com/500x300.png?text=Pep+Guardiola',
+    type: 'coach',
+  },
+  {
+    id: '1003',
+    nome: 'Allianz Parque',
+    selecao: 'Brasil',
+    posicao: 'Estádio',
+    curiosidade: 'Um dos estádios mais modernos do Brasil, com tecnologia e conforto para os espectadores.',
+    imagem: 'https://via.placeholder.com/500x300.png?text=Allianz+Parque',
+    type: 'stadium',
+  },
+  {
+    id: '1004',
     nome: 'Seleção Brasileira',
     selecao: 'Brasil',
     posicao: 'Seleção',
@@ -2185,7 +2212,7 @@ export type CardItem = {
   posicao: string;
   curiosidade: string;
   imagem: any;
-  type?: 'player' | 'team' | 'stadium' | 'mascot';
+  type?: 'player' | 'team' | 'stadium' | 'mascot' | 'coach';
   title?: string;
   subtitle?: string;
   description?: string;
