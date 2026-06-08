@@ -1,81 +1,123 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
 
 import AlbumScreen from '../screens/AlbumScreen';
 import DetailsScreen from '../screens/DetailsScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
+import SelectionScreen from '../screens/SelectionScreen';
+import SelectionsListScreen from '../screens/SelectionsListScreen';
 import HistoryScreen from '../screens/HistoryScreen';
+import HistoryDetailScreen from '../screens/HistoryDetailScreen';
 import QuizScreen from '../screens/QuizScreen';
 import OdsScreen from '../screens/OdsScreen';
-import { theme } from '../styles/theme';
+import { useTheme } from '../context/ThemeContext';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-
-function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
-  return (
-    <Text style={{ fontSize: focused ? 24 : 22, opacity: focused ? 1 : 0.65 }}>{emoji}</Text>
-  );
-}
+const HistoryStack = createNativeStackNavigator();
 
 function AlbumStack() {
+  const { theme } = useTheme();
+
   return (
-    <Stack.Navigator screenOptions={{ headerTintColor: theme.colors.primary }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: theme.colors.textInverse,
+        headerStyle: { backgroundColor: theme.colors.primary },
+        headerTitleStyle: { fontFamily: theme.typography.fontSemiBold },
+      }}
+    >
       <Stack.Screen name="AlbumMain" component={AlbumScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Detalhes do Item' }} />
+      <Stack.Screen name="Favorites" component={FavoritesScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="SelectionsList" component={SelectionsListScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Selection" component={SelectionScreen} options={{ headerShown: false }} />
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{ title: 'Detalhes da Figurinha' }}
+      />
     </Stack.Navigator>
   );
 }
 
-export default function Routes() {
+function HistoryStackNavigator() {
+  const { theme } = useTheme();
+
   return (
-    <NavigationContainer>
+    <HistoryStack.Navigator
+      screenOptions={{
+        headerTintColor: theme.colors.textInverse,
+        headerStyle: { backgroundColor: theme.colors.primary },
+        headerTitleStyle: { fontFamily: theme.typography.fontSemiBold },
+      }}
+    >
+      <HistoryStack.Screen name="HistoryMain" component={HistoryScreen} options={{ headerShown: false }} />
+      <HistoryStack.Screen
+        name="HistoryDetail"
+        component={HistoryDetailScreen}
+        options={{ title: 'Detalhes da Copa' }}
+      />
+    </HistoryStack.Navigator>
+  );
+}
+
+export default function Routes() {
+  const { theme, isDark } = useTheme();
+
+  const navTheme = {
+    ...(isDark ? DarkTheme : DefaultTheme),
+    colors: {
+      ...(isDark ? DarkTheme.colors : DefaultTheme.colors),
+      primary: theme.colors.primary,
+      background: theme.colors.background,
+      card: theme.colors.surface,
+      text: theme.colors.text,
+      border: theme.colors.border,
+      notification: theme.colors.secondary,
+    },
+  };
+
+  return (
+    <NavigationContainer theme={navTheme}>
+      <StatusBar style={isDark ? 'light' : 'dark'} />
       <Tab.Navigator
-        screenOptions={{
+        screenOptions={({ route }) => ({
           tabBarActiveTintColor: theme.colors.primary,
-          tabBarInactiveTintColor: theme.colors.textLight,
+          tabBarInactiveTintColor: theme.colors.textSecondary,
           headerShown: false,
           tabBarStyle: {
-            backgroundColor: theme.colors.surface,
+            backgroundColor: theme.colors.tabBar,
             borderTopWidth: 1,
-            borderColor: theme.colors.border,
-            height: 62,
-            paddingBottom: 8,
-            paddingTop: 6,
+            borderColor: theme.colors.tabBarBorder,
+            height: Platform.OS === 'ios' ? 88 : 68,
+            paddingBottom: Platform.OS === 'ios' ? 28 : 10,
+            paddingTop: 8,
+            ...theme.shadows.sm,
           },
-          tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },
-        }}
+          tabBarLabelStyle: {
+            fontSize: 11,
+            fontFamily: theme.typography.fontSemiBold,
+          },
+          tabBarIcon: ({ focused, color, size }) => {
+            const icons: Record<string, keyof typeof Ionicons.glyphMap> = {
+              Álbum: focused ? 'book' : 'book-outline',
+              Histórico: focused ? 'time' : 'time-outline',
+              Quiz: focused ? 'trophy' : 'trophy-outline',
+              'ODS ONU': focused ? 'earth' : 'earth-outline',
+            };
+            return <Ionicons name={icons[route.name] ?? 'ellipse'} size={size - 2} color={color} />;
+          },
+        })}
       >
-        <Tab.Screen
-          name="Álbum"
-          component={AlbumStack}
-          options={{
-            tabBarIcon: ({ focused }) => <TabIcon emoji="📖" focused={focused} />,
-          }}
-        />
-        <Tab.Screen
-          name="Histórico"
-          component={HistoryScreen}
-          options={{
-            tabBarIcon: ({ focused }) => <TabIcon emoji="📅" focused={focused} />,
-          }}
-        />
-        <Tab.Screen
-          name="Quiz"
-          component={QuizScreen}
-          options={{
-            tabBarIcon: ({ focused }) => <TabIcon emoji="🏆" focused={focused} />,
-          }}
-        />
-        <Tab.Screen
-          name="ODS ONU"
-          component={OdsScreen}
-          options={{
-            tabBarIcon: ({ focused }) => <TabIcon emoji="🌍" focused={focused} />,
-          }}
-        />
+        <Tab.Screen name="Álbum" component={AlbumStack} />
+        <Tab.Screen name="Histórico" component={HistoryStackNavigator} />
+        <Tab.Screen name="Quiz" component={QuizScreen} />
+        <Tab.Screen name="ODS ONU" component={OdsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

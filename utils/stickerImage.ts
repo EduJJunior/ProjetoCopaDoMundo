@@ -34,7 +34,7 @@ export function getStickerImageUri(item: StickerLike): string {
   return `https://ui-avatars.com/api/?name=${name}&background=${background}&color=fff&size=512&bold=true&format=png`;
 }
 
-export function resolveImageSource(item: StickerLike) {
+export function resolveImageSource(item: StickerLike): number | { uri: string } {
   const fallbackUri = getStickerImageUri(item);
   const raw = item.imagem;
 
@@ -54,11 +54,7 @@ export function resolveImageSource(item: StickerLike) {
     if (uri.includes('via.placeholder.com') || uri.includes('placeholder')) {
       return { uri: fallbackUri };
     }
-    return raw as { uri: string };
-  }
-
-  if (raw) {
-    return raw;
+    return { uri };
   }
 
   return { uri: fallbackUri };
