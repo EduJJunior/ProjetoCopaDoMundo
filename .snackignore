@@ -3,10 +3,14 @@ node_modules/
 dist/
 build/
 .expo-shared/
+.expo-test-export/
+.expo-tmp-export/
+.expo-tmp-export2/
 .git/
 .gitignore
 legacy-root-backup/
 expo-app/
+App.legacy.js
 **/*.test.ts
 **/*.test.tsx
 **/*.test.js
